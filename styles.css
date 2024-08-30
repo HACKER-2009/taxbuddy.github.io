@@ -1,0 +1,174 @@
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #1f1f1f;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  background-color: #2c2c2c;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  margin-top: 100px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+  color: #f5f5f5;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #2575fc;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-secondary {
+  background-color: #6a11cb;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 28px;
+  margin-left: 15px;
+  cursor: pointer;
+  color: #f5f5f5;
+}
+
+.embedded-tool {
+  margin-top: 20px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  padding: 10px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .navbar h1 {
+    font-size: 20px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 15px;
+    margin-top: 70px;
+  }
+
+  h1, h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

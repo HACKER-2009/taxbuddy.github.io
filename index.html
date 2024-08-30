@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Tax Buddy - Tax Calculator & Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Sidebar Menu -->
+  <div id="sidebar" class="sidebar hidden">
+    <button class="closebtn" onclick="toggleSidebar()">&times;</button>
+    <a href="#" onclick="navigateTo('loginPage')">Login</a>
+    <a href="#" onclick="navigateTo('homePage')">Home</a>
+    <a href="#" onclick="navigateTo('calculatorPage')">Tax Calculator</a>
+    <a href="#" onclick="navigateTo('plannerPage')">Tax Planner</a>
+  </div>
+
+  <!-- Navbar with Hamburger Icon -->
+  <div class="navbar">
+    <span class="menu-icon" onclick="toggleSidebar()">&#9776;</span>
+    <h1>Tax Buddy</h1>
+  </div>
+
+  <!-- Login/Signup Page -->
+  <div id="loginPage" class="container">
+    <header>
+      <h1>Login or Sign Up</h1>
+    </header>
+    <main>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="login()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="signup()">Sign Up</a></p>
+      </form>
+    </main>
+  </div>
+
+  <!-- Home Page -->
+  <div id="homePage" class="container hidden">
+    <header>
+      <h1>Welcome to Tax Buddy</h1>
+      <img src="https://via.placeholder.com/800x300/333/fff?text=Tax+Planning+and+Savings" alt="Tax Planning" class="hero-image">
+    </header>
+    <main class="planner-content">
+      <p>Optimize your tax savings with our advanced tools and resources.</p>
+      <button class="btn btn-secondary" onclick="navigateTo('calculatorPage')">Advanced Tax Calculator</button>
+      <button class="btn" onclick="navigateTo('plannerPage')">AI-Powered Tax Planner</button>
+    </main>
+  </div>
+
+  <!-- Tax Calculator Page -->
+  <div id="calculatorPage" class="container hidden">
+    <header>
+      <h1>Advanced Tax Calculator</h1>
+      <!-- Calculator Icon -->
+      <span class="icon" onclick="toggleCalculator()"><img src="https://img.icons8.com/ios-filled/50/ffffff/calculator.png" alt="Calculator Icon" /></span>
+    </header>
+    <main>
+      <form id="taxForm">
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <select id="age" required>
+            <option value="below60">Below 60</option>
+            <option value="60to80">60 to 80</option>
+            <option value="above80">Above 80</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="income">Annual Income (₹):</label>
+          <input type="number" id="income" placeholder="Enter your annual income" required>
+        </div>
+        <div class="form-group">
+          <label for="hra">House Rent Allowance (HRA) (₹):</label>
+          <input type="number" id="hra" placeholder="Enter HRA amount" required>
+        </div>
+        <div class="form-group">
+          <label for="lta">Leave Travel Allowance (LTA) (₹):</label>
+          <input type="number" id="lta" placeholder="Enter LTA amount" required>
+        </div>
+        <div class="form-group">
+          <label for="deductions">Other Deductions (₹):</label>
+          <input type="number" id="deductions" placeholder="Enter total deductions" required>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="calculateTax()">Calculate Tax</button>
+      </form>
+      <div id="result"></div>
+
+      <!-- Embedded Calculator -->
+      <div id="embeddedCalculator" class="embedded-tool hidden">
+        <!-- Simple JavaScript Calculator -->
+        <iframe src="https://www.calculatorsoup.com/calculators/math/basic.php" frameborder="0" width="100%" height="400px"></iframe>
+      </div>
+    </main>
+  </div>
+
+  <!-- Tax Planner Page -->
+  <div id="plannerPage" class="container hidden">
+    <header>
+      <h1>AI-Powered Tax Planner</h1>
+      <!-- Calendar Icon -->
+      <span class="icon" onclick="toggleCalendar()"><img src="https://img.icons8.com/ios-filled/50/ffffff/calendar.png" alt="Calendar Icon" /></span>
+    </header>
+    <main>
+      <form id="plannerForm">
+        <div class="form-group">
+          <label for="investment">Investments in 80C (₹):</label>
+          <input type="number" id="investment" placeholder="Enter investments in 80C" required>
+        </div>
+        <div class="form-group">
+          <label for="insurance">Health Insurance Premium (₹):</label>
+          <input type="number" id="insurance" placeholder="Enter health insurance premium" required>
+        </div>
+        <div class="form-group">
+          <label for="homeLoan">Home Loan Interest (₹):</label>
+          <input type="number" id="homeLoan" placeholder="Enter home loan interest" required>
+        </div>
+        <div class="form-group">
+          <label for="donations">Donations (₹):</label>
+          <input type="number" id="donations" placeholder="Enter donations made" required>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="planTaxes()">Get Personalized Tips</button>
+      </form>
+      <div id="plannerResult"></div>
+
+      <!-- Embedded Calendar -->
+      <div id="embeddedCalendar" class="embedded-tool hidden">
+        <!-- Simple 2024 Calendar -->
+        <iframe src="https://www.timeanddate.com/calendar/print.html?year=2024&country=1&cols=3" frameborder="0" width="100%" height="400px"></iframe>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
